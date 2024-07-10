@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <style>
+      iframe {
+        width: 90%;
+        height: 90%;
+      }
+      #framecontainer {
+        width: 90vw;
+        height: 90vh;
+        place-content: center;
+      }
+    </style>
+    <div id="framecontainer">
+      <div>
+        <button onclick="Refresh()">Refresh</button>
+      </div>
+      <iframe id="frame" src="frame.html#sb-target"></iframe>
+    </div>
+    <script>
+      const framecontainer = document.getElementById("framecontainer");
+      function Refresh() {
+        let frame = document.getElementById("frame");
+        frame.remove();
+        frame = document.createElement("iframe");
+        frame.id = "frame";
+        frame.src = "frame.html#sb-target";
+        framecontainer.append(frame);
+      }
+    </script>
+  </body>
+</html>

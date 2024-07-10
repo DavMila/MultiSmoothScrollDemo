@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <style>
+    .scroller {
+      scroll-behavior: smooth;
+      overflow-y: scroll;
+      height: 90vh;
+      border: solid 1px black;
+      display: inline-block;
+    }
+
+    .sidebar {
+      width: 20vw;
+    }
+
+    .content {
+      width: 70vw;
+    }
+
+    .box {
+      width: 100%;
+      background-color: teal;
+      border-top: solid 1px black;
+      text-align: center;
+      place-content: center;
+      font-size: 3rem;
+    }
+
+    .sidebar .box {
+      margin-bottom: 5%;
+      height: 10%;
+    }
+    .sidebar::before {
+      content: "Sidebar"
+    }
+
+    .content::before {
+      content: "Content"
+    }
+
+    .content .box {
+      margin-bottom: 5%;
+      height: 40%;
+    }
+
+    .space {
+      height: 200vh;
+      width: 200vw;
+    }
+
+    .sb-target,
+    .c-target {
+      background-color: yellow;
+    }
+  </style>
+  <div>
+    <div class="sidebar scroller">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+      <div class="box">5</div>
+      <div class="box">6</div>
+      <div class="box">7</div>
+      <div class="box">8</div>
+      <div class="box">9</div>
+      <div class="box">10</div>
+      <div class="box">11</div>
+      <div class="box">12</div>
+      <div class="box">13</div>
+      <div class="box sb-target" id="sb-target">14</div>
+    </div>
+    <div class="content scroller">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+      <div class="box">5</div>
+      <div class="box">6</div>
+      <div class="box">7</div>
+      <div class="box">8</div>
+      <div class="box">9</div>
+      <div class="box">10</div>
+      <div class="box">11</div>
+      <div class="box">12</div>
+      <div class="box">13</div>
+      <div class="box c-target" id="c-target">14</div>
+    </div>
+  </div>
+  <script>
+    window.addEventListener("load", () => {
+      const content_target = document.getElementById("c-target");
+
+      content_target.scrollIntoView();
+    });
+  </script>
+</body>
+
+</html>

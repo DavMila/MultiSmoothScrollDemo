@@ -9,6 +9,7 @@
       height: 90vh;
       border: solid 1px black;
       display: inline-block;
+      position: relative;
     }
 
     .sidebar {
@@ -33,11 +34,17 @@
       height: 10%;
     }
     .sidebar::before {
-      content: "Sidebar"
+      content: "Sidebar";
+      position: fixed;
+      border: solid 1px black;
+      background-color: grey;
     }
 
     .content::before {
-      content: "Content"
+      content: "Content";
+      position: fixed;
+      border: solid 1px black;
+      background-color: grey;
     }
 
     .content .box {
@@ -50,50 +57,53 @@
       width: 200vw;
     }
 
-    .sb-target,
-    .c-target {
+    :target, .ctarget {
       background-color: yellow;
     }
   </style>
   <div>
     <div class="sidebar scroller">
-      <div class="box">1</div>
-      <div class="box">2</div>
-      <div class="box">3</div>
-      <div class="box">4</div>
-      <div class="box">5</div>
-      <div class="box">6</div>
-      <div class="box">7</div>
-      <div class="box">8</div>
-      <div class="box">9</div>
-      <div class="box">10</div>
-      <div class="box">11</div>
-      <div class="box">12</div>
-      <div class="box">13</div>
-      <div class="box sb-target" id="sb-target">14</div>
+      <div class="box" id="sb1">1</div>
+      <div class="box" id="sb2">2</div>
+      <div class="box" id="sb3">3</div>
+      <div class="box" id="sb4">4</div>
+      <div class="box" id="sb5">5</div>
+      <div class="box" id="sb6">6</div>
+      <div class="box" id="sb7">7</div>
+      <div class="box" id="sb8">8</div>
+      <div class="box" id="sb9">9</div>
+      <div class="box" id="sb10">10</div>
+      <div class="box" id="sb11">11</div>
+      <div class="box" id="sb12">12</div>
+      <div class="box" id="sb13">13</div>
+      <div class="box" id="sb14">14</div>
     </div>
     <div class="content scroller">
-      <div class="box">1</div>
-      <div class="box">2</div>
-      <div class="box">3</div>
-      <div class="box">4</div>
-      <div class="box">5</div>
-      <div class="box">6</div>
-      <div class="box">7</div>
-      <div class="box">8</div>
-      <div class="box">9</div>
-      <div class="box">10</div>
-      <div class="box">11</div>
-      <div class="box">12</div>
-      <div class="box">13</div>
-      <div class="box c-target" id="c-target">14</div>
+      <div class="box" id="c1">1</div>
+      <div class="box" id="c2">2</div>
+      <div class="box" id="c3">3</div>
+      <div class="box" id="c4">4</div>
+      <div class="box" id="c5">5</div>
+      <div class="box" id="c6">6</div>
+      <div class="box" id="c7">7</div>
+      <div class="box" id="c8">8</div>
+      <div class="box" id="c9">9</div>
+      <div class="box" id="c10">10</div>
+      <div class="box" id="c11">11</div>
+      <div class="box" id="c12">12</div>
+      <div class="box" id="c13">13</div>
+      <div class="box" id="c14">14</div>
     </div>
   </div>
   <script>
     window.addEventListener("load", () => {
-      const content_target = document.getElementById("c-target");
+      const num = location.hash.substring(3);
+
+      const content_target = document.getElementById(`c${num}`);
 
       content_target.scrollIntoView();
+
+      content_target.classList.add("ctarget");
     });
   </script>
 </body>
